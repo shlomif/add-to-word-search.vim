@@ -33,6 +33,16 @@ function! Append_keyword_to_search(mypat)
     call Append_pat_to_search('\<' . Quotemeta(a:mypat) . '\>')
 endfunction
 
+function! Star_add()
+    let existing_pat = @/
+    normal *
+    let new_pat = @/
+    let @/ = existing_pat
+    call Append_pat_to_search(new_pat)
+endfunction
+
+map <Leader>** :call Star_add()<CR>
+
 " command -range -nargs=1 Rs call Range_Search(<f-args>,<line1>,<line2>)
 " command -range -nargs=1 RS call Range_Search(<f-args>,<line1>,<line2>)
 
