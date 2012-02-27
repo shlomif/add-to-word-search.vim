@@ -6,7 +6,7 @@
 require 'rake'
 
 plugin_name = 'add-to-word-search'
-files = ['doc/#{plugin_name}.txt', 'plugin/#{plugin_name}.vim']
+files = ["doc/#{plugin_name}.txt", "plugin/#{plugin_name}.vim"]
 
 desc 'Install plugin and documentation'
 task :install do

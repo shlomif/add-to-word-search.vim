@@ -19,7 +19,7 @@
 " * is the namespace and '*' searches forward for a keyword.
 
 function! Append_pat_to_search(mypat)
-    let @/ = @/ . a:mypat
+    let @/ = @/ . '\|' . a:mypat
 endfunction
 
 " This recipe is based on:
@@ -30,7 +30,7 @@ function! Quotemeta(mypat)
 endfunction
 
 function! Append_keyword_to_search(mypat)
-    call Append_pat_to_search('\<' . Quotemeta(mypat) . '\>')
+    call Append_pat_to_search('\<' . Quotemeta(a:mypat) . '\>')
 endfunction
 
 " command -range -nargs=1 Rs call Range_Search(<f-args>,<line1>,<line2>)
