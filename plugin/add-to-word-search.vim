@@ -35,10 +35,13 @@ endfunction
 
 function! Star_add()
     let existing_pat = @/
+    let save_cursor = getpos('.')
     normal *
     let new_pat = @/
     let @/ = existing_pat
     call Append_pat_to_search(new_pat)
+    call setpos('.', save_cursor)
+    normal n
 endfunction
 
 map <Leader>** :call Star_add()<CR>
