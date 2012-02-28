@@ -61,6 +61,7 @@ endfunction
 " * :help function-search-undo
 map <Leader>** :execute Star_add()<CR>
 map <Leader>*# :execute Octothorpe_add()<CR>
+map <Leader>## :execute Octothorpe_add()<CR>
 
 
 " command -range -nargs=1 Rs call Range_Search(<f-args>,<line1>,<line2>)
