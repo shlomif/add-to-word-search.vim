@@ -33,27 +33,23 @@ function! Append_keyword_to_search(mypat)
     call Append_pat_to_search('\<' . Quotemeta(a:mypat) . '\>')
 endfunction
 
-function! Star_add()
+function! Add_keyword_search_generic(search_cmd, return_cmd)
     let existing_pat = @/
     let save_cursor = getpos('.')
-    normal *
+    execute a:search_cmd
     let new_pat = @/
     let @/ = existing_pat
     call Append_pat_to_search(new_pat)
     call setpos('.', save_cursor)
-    return "normal /\r\n"
+    return a:return_cmd
 endfunction
 
-" TODO : Merge with Star_add()
-" << Two strikes and then you refactor. >>
+function! Star_add()
+    return Add_keyword_search_generic("normal *",  "normal /\r\n")
+endfunction
+
 function! Octothorpe_add()
-    let existing_pat = @/
-    let save_cursor = getpos('.')
-    normal #
-    let new_pat = @/
-    let @/ = existing_pat
-    call Append_pat_to_search(new_pat)
-    return "normal ?\r\n"
+    return Add_keyword_search_generic("normal #", "normal ?\r\n")
 endfunction
 
 " We evaluate the function return due to:
