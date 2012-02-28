@@ -41,10 +41,27 @@ function! Star_add()
     let @/ = existing_pat
     call Append_pat_to_search(new_pat)
     call setpos('.', save_cursor)
-    normal n
+    return "normal /\r\n"
 endfunction
 
-map <Leader>** :call Star_add()<CR>
+" TODO : Merge with Star_add()
+" << Two strikes and then you refactor. >>
+function! Octothorpe_add()
+    let existing_pat = @/
+    let save_cursor = getpos('.')
+    normal #
+    let new_pat = @/
+    let @/ = existing_pat
+    call Append_pat_to_search(new_pat)
+    return "normal ?\r\n"
+endfunction
+
+" We evaluate the function return due to:
+" * http://groups.google.com/group/vim_dev/browse_thread/thread/2c692024bbd47187
+" * :help function-search-undo
+map <Leader>** :execute Star_add()<CR>
+map <Leader>*# :execute Octothorpe_add()<CR>
+
 
 " command -range -nargs=1 Rs call Range_Search(<f-args>,<line1>,<line2>)
 " command -range -nargs=1 RS call Range_Search(<f-args>,<line1>,<line2>)
