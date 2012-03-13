@@ -12,10 +12,7 @@ FILES = doc/add-to-word-search.txt plugin/add-to-word-search.vim README.pod Rake
 
 $(ZIP_FILE): $(FILES)
 	mkdir -p $(NAME)
-	for f in $(FILES) ; do
-		mkdir -p "$(NAME)/$$(dirname "$$f")"
-		cp "$f" "$(NAME)/$$f"
-	done
+	for f in $(FILES) ; do mkdir -p "$(NAME)/$$(dirname "$$f")" ; cp "$$f" "$(NAME)/$$f" ; done
 	rm -f $@
-	zip $@ $(NAME)
+	zip -r $@ $(NAME)
 	rm -fr $(NAME)
