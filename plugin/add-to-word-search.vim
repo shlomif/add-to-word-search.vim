@@ -13,7 +13,7 @@
 " a different one, or when a type is typedef'ed to something else (in C).
 " This module aims to allow you to convenietly add search terms to the search
 " so you can find all the occurences of all of them.
-" To use: put this in ~/.vim/plugin/ 
+" To use: put this in ~/.vim/plugin/
 "
 " Then you can type <Leader>** to add a search term to the search (mnemonic -
 " * is the namespace and '*' searches forward for a keyword.
@@ -37,7 +37,7 @@ function! Add_keyword_search_generic(search_cmd, return_cmd)
     let existing_pat = @/
     let save_cursor = getpos('.')
     " Might generate an error when :set nowrapscan is on because it reached
-    " the end of the document. So we're always setting the option to 
+    " the end of the document. So we're always setting the option to
     " 'wrapscan'.
     let orig_nowrapscan = &l:wrapscan
     if !orig_nowrapscan
