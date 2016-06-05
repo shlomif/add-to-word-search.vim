@@ -7,8 +7,8 @@ add-to-word-search.vim - vim plugin to append more words to searches.
 When searching through code one often needs to add more related
 terms to the search. For example, if I found a call to a function inside
 a different one, or when a type is typedef'ed to something else (in C).
-This module aims to allow you to convenietly add search terms to the search
-so you can find all the occurences of all of them.
+This module aims to allow you to conveniently add search terms to the search
+so you can find all the occurrences of all of them.
 To use: put this in C<~/.vim/plugin/> , which can be typed by installing the
 Ruby rake package and typing C<rake install>.
 

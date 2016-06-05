@@ -11,8 +11,8 @@
 " When searching through code I often found that I need to add more related
 " terms to the search. For example, if I found a call to a function inside
 " a different one, or when a type is typedef'ed to something else (in C).
-" This module aims to allow you to convenietly add search terms to the search
-" so you can find all the occurences of all of them.
+" This module aims to allow you to conveniently add search terms to the search
+" so you can find all the occurrences of all of them.
 " To use: put this in ~/.vim/plugin/
 "
 " Then you can type <Leader>** to add a search term to the search (mnemonic -
